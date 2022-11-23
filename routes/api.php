@@ -14,8 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum', 'verified'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('throttle:3,1')->post('auth/login', \App\Http\Controllers\LoginController::class);
+Route::middleware('throttle:3,1')->group(function () {
+    Route::post('auth/login', \App\Http\Controllers\LoginController::class);
+    Route::post('auth/register', \App\Http\Controllers\RegisterController::class);
+});
+
+Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
+    $request->fulfill();
+    return response()->json();
+})->middleware(['auth:sanctum', 'signed'])->name('verification.verify');
