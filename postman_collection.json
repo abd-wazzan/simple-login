@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "40850394-e88a-4eb2-8c18-362aa09213fa",
+		"name": "Simple-login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23181349"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://simple-login.test/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"simple-login",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Expect",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ahmad",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "wazzan.dev@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://simple-login.test/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"simple-login",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "26|or9aOSrFIBkecSYGs96CD17Nbv5Kt29CjslxXbrM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://simple-login.test/api/email/verify/21/19ae87df4197ba952082b46f9ac125cbcef70ba4?expires=1669195935&signature=54ad02bb319b01fdf44ccd48bbd13d0b7483b8de9772d48cf3614c5d96cb786e",
+					"protocol": "http",
+					"host": [
+						"simple-login",
+						"test"
+					],
+					"path": [
+						"api",
+						"email",
+						"verify",
+						"21",
+						"19ae87df4197ba952082b46f9ac125cbcef70ba4"
+					],
+					"query": [
+						{
+							"key": "expires",
+							"value": "1669195935"
+						},
+						{
+							"key": "signature",
+							"value": "54ad02bb319b01fdf44ccd48bbd13d0b7483b8de9772d48cf3614c5d96cb786e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "25|gylMI3YRwI02dYUdBVHJq5ujLBvU44m3PJCrp4oI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://simple-login.test/api/user",
+					"protocol": "http",
+					"host": [
+						"simple-login",
+						"test"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
